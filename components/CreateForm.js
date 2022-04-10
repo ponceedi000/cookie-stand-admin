@@ -1,10 +1,31 @@
-export default function Form(props) {
+export default function CreateForm({ handleCreateReport, hours}) {
+
+  function handleCreate(event) {
+    event.preventDefault();
+
+
+    let hourlyData = [];
+
+    for (let _ in hours) {
+      let max_cust_per_hour = parseFloat(event.target.max_cust_per_hour.value);
+      let min_cust_per_hour = parseFloat(event.target.min_cust_per_hour.value);
+      let avg_cookies_per_sale = parseFloat(event.target.avg_cookies_per_sale.value);
+
+      let hourData = Math.round((Math.random() * (max_cust_per_hour - min_cust_per_hour) + min_cust_per_hour) * avg_cookies_per_sale);
+      hourlyData.push(hourData);
+    }
+    let report = {
+      name: event.target.location.value,
+      hourlyData: hourlyData,
+    };
+    handleCreateReport(report)
+  }
 
   return (
     <div className="flex flex-col justify-center px-10 py-2 mx-20 my-10 bg-green-400 rounded-lg">
       <p className="py-2 mb-3 text-xl font-medium text-center">Create Cookie Stand</p>
 
-      <form onSubmit={props.handleCreate} className=''>
+      <form onSubmit={handleCreate} className=''>
         <div className="flex items-center ">
 
           <label className="pr-2 mb-1 font-boldmd:text-right md:mb-0">Location</label>

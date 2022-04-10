@@ -1,23 +1,39 @@
-# Next.js + Tailwind CSS Example
+# Lab: 38 - Cookie Stand Admin Version 2
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+**Authors**: Ediberto Ponce
+**Version**: 2.0.0
+**PR**: https://github.com/ponceedi000/cookie-stand-admin/pull/2
 
-## Deploy your own
+## Overview
+**My job is to continue work on Cookie Stand Admin app using Next.js and style using Tailwind CSS.**
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Features
+- Components should render to match spec.
+- Style all components using TailwindCSS utility classes to match spec.
 
-## How to use
+## User Acceptance Tests
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+- None
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
-```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Architecture
+- JavaScript
+- React
+- Next.js
+- TailwindCSS
+
+### Name of feature: Implement Report table, Next.js, and Tailwind
+
+- Estimate of time needed to complete: 4hrs
+
+- Start time: 1:30pm
+
+- Finish time: 5:50
+
+- Actual time needed to complete: 4+hrs
+
+## Resources
+- [JavaScript Array reduce()](https://www.w3schools.com/jsref/jsref_reduce.asp)
+- [Tailwindcss Docs](https://tailwindcss.com/)
+- [React Forms](https://reactjs.org/docs/forms.html)
