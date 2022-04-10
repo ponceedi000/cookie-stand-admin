@@ -33,7 +33,7 @@ export default function CookieStandAdmin() {
         <CreateForm handleCreateReport={handleCreateReport} hours={hours} />
         <ReportTable hours={hours} reports={reports}/>
       </main>
-      <Footer />
+      <Footer reports={reports}/>
 
     </div>
   )
