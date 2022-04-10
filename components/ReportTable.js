@@ -1,26 +1,26 @@
 export default function ReportTable({ hours, reports }) {
   if (reports.length) {
     return (
-      <table className="">
+      <table className="m-auto bg-green-600 rounded table-auto mx-50">
         <thead>
           <tr>
-            <th className="">Location</th>
+            <th>Location</th>
             {hours.map((hour) => (
-              <th key={hour}>{hour}</th>
+              <th className="px-4" key={hour}>{hour}</th>
             ))}
-            <th>Totals</th>
+            <th className="px-4">Totals</th>
           </tr>
         </thead>
         <tbody>
           {reports.map((report) => (
             <ResultsRow key={report.name} report={report} />
           ))}
-          <tr>
-            <td className="">
+          <tr className="border-[1px] border-black">
+            <td className="px-4 font-bold">
               Totals
             </td>
             {hours.map((hour, idx) => (
-              <td key={hour} className="">
+              <td key={hour} className="text-center border-[1px] border-black">
                 {reports.reduce(
                   (prev, current) => prev + current.hourlyData[idx],
                   0
@@ -28,7 +28,7 @@ export default function ReportTable({ hours, reports }) {
               </td>
             ))}
 
-            <td className="">
+            <td>
               {hours
                 .map((hour, idx) =>
                   reports.reduce(
@@ -54,10 +54,10 @@ export default function ReportTable({ hours, reports }) {
 
 function ResultsRow({ report }) {
   return (
-    <tr>
+    <tr className="odd:bg-green-500 even:bg-green-300">
       <td className="pl-4 border border-black">{report.name}</td>
       {report.hourlyData.map((hourData, idx) => (
-        <td className="pl-4 border border-black" key={idx}>
+        <td className="text-center border border-black" key={idx}>
           {hourData}
         </td>
       ))}
