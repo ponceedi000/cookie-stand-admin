@@ -1,24 +1,34 @@
-export default function CreateForm({ handleCreateReport, hours}) {
+import useResource from '../hooks/useResource'
+import { useAuth } from '../contexts/auth'
+
+export default function CreateForm({ hours }) {
+
+  const { user } = useAuth()
+  const { createResource } = useResource()
 
   function handleCreate(event) {
     event.preventDefault();
 
 
     let hourlyData = [];
+    let max_cust_per_hour = parseFloat(event.target.max_cust_per_hour.value);
+    let min_cust_per_hour = parseFloat(event.target.min_cust_per_hour.value);
+    let avg_cookies_per_sale = parseFloat(event.target.avg_cookies_per_sale.value);
 
-    for (let _ in hours) {
-      let max_cust_per_hour = parseFloat(event.target.max_cust_per_hour.value);
-      let min_cust_per_hour = parseFloat(event.target.min_cust_per_hour.value);
-      let avg_cookies_per_sale = parseFloat(event.target.avg_cookies_per_sale.value);
-
+    for (let hour in hours) {
       let hourData = Math.round((Math.random() * (max_cust_per_hour - min_cust_per_hour) + min_cust_per_hour) * avg_cookies_per_sale);
       hourlyData.push(hourData);
     }
+
     let report = {
-      name: event.target.location.value,
-      hourlyData: hourlyData,
+      owner: null,
+      max_cust_per_hour,
+      min_cust_per_hour,
+      avg_cookies_per_sale,
+      location: event.target.location.value,
+      hourly_sales: JSON.stringify(hourlyData),
     };
-    handleCreateReport(report)
+    createResource(report)
   }
 
   return (
