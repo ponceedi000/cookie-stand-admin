@@ -5,28 +5,30 @@ import ReportTable from '../components/ReportTable'
 import Footer from '../components/Footer'
 import { hours } from "../data";
 import { useState } from 'react'
+import { useAuth } from '../contexts/auth'
 
-export default function CookieStandAdmin() {
+export default function Home() {
+  const { user } = useAuth()
+
+  return (
+    <>
+    {user ? <CookieStandAdmin /> : <loginForm />}
+    </>
+  )
+}
+
+
+function CookieStandAdmin() {
 
   const [reports, setStoreReports] = useState([]);
 
 
   function handleCreateReport(report) {
     setStoreReports([...reports, report]);
-
-    // const cookieStand = {
-    //   location: event.target.location.value,
-    //   min_cust_per_hour: event.target.min_cust_per_hour.value,
-    //   max_cust_per_hour: event.target.max_cust_per_hour.value,
-    //   avg_cookies_per_sale: event.target.avg_cookies_per_sale.value,
-    // }
   }
 
-
-
   return (
-    <div>
-     
+    <>
       <Head />
       <Header />
       <main>
@@ -34,7 +36,30 @@ export default function CookieStandAdmin() {
         <ReportTable hours={hours} reports={reports}/>
       </main>
       <Footer reports={reports}/>
+    </>
+  );
+}
 
-    </div>
+function loginForm() {
+  const { login } = useAuth()
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    login(e.target.username.value, e.target.password.value)
+  }
+  return (
+    <>
+    <form onSubmit={handleSubmit}>
+      <fieldset>
+        <label className='' htmlFor='username'>Username</label>
+        <input className='' type='text' name='username' placeholder='Enter Username'></input>
+
+        <label className='' htmlFor='password'>Password</label>
+        <input className='' type='password' name='password' placeholder='Enter Password'></input>
+
+        <button className=''>Sign In</button>
+      </fieldset>
+    </form>
+    </>
   )
 }
