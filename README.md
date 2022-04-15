@@ -2,7 +2,7 @@
 
 **Authors**: Ediberto Ponce
 **Version**: 2.0.0
-**PR**: https://github.com/ponceedi000/cookie-stand-admin/pull/2
+**PR**: https://github.com/ponceedi000/cookie-stand-admin/pull/3
 
 ## Overview
 **My job is to continue work on Cookie Stand Admin app using Next.js and style using Tailwind CSS.**
@@ -22,6 +22,17 @@
 - React
 - Next.js
 - TailwindCSS
+- Django backend
+
+### Name of feature: Implement Remote API
+
+- Estimate of time needed to complete: 4hrs
+
+- Start time: 1:30pm
+
+- Finish time: Not complete
+
+- Actual time needed to complete: Not complete
 
 ### Name of feature: Implement Report table, Next.js, and Tailwind
 
